@@ -6,18 +6,12 @@ public class SpriteUpdate : MonoBehaviour
 {
 
     
-    public SpriteRenderer spriteRenderer;
 
 
     private void Start()
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
 
-    void ChangeSprite(Sprite newSprite) {
 
-
-        spriteRenderer.sprite = newSprite;
-    }
 }
