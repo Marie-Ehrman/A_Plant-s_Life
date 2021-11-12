@@ -23,11 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        //spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-       // clock = GetComponent<CountDown>();
         player = GetComponent<CharacterController>();
-        //sprite = GetComponent<SpriteUpdate>();
-        
     }
 
     // Update is called once per frame
@@ -41,6 +37,7 @@ public class GameManager : MonoBehaviour
         if (Mathf.Round(clock.timer) == 25) {
             
             isWatered = false;
+            clock.timer = 30;
 
         }
 
