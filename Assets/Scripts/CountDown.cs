@@ -6,20 +6,24 @@ using UnityEngine.UI;
 public class CountDown : MonoBehaviour
 {
 
-    public float timeStart = 30f;
+    public float timer = 30f;
     public Text textBox;
+    public CharacterController player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        textBox.text = timeStart.ToString();
+        textBox.text = timer.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeStart -= Time.deltaTime;
-        textBox.text = Mathf.Round(timeStart).ToString();
+        timer -= Time.deltaTime;
+        textBox.text = Mathf.Round(timer).ToString();
+
     }
+
+
 }
