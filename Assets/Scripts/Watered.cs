@@ -6,11 +6,16 @@ public class Watered : MonoBehaviour
 {
 
     public GameManager plant;
+    public CountDown clock;
 
 
     private void OnTriggerEnter(Collider other)
     {
-        plant.isWatered = true;
+        if (!plant.isWatered)
+        {
+            plant.isWatered = true;
+            clock.timer = 30;
+        }
         
     }
 }

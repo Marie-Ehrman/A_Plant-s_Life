@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         if (Mathf.Round(clock.timer) == 25) {
             
             isWatered = false;
-            clock.timer = 30;
+            
 
         }
 
