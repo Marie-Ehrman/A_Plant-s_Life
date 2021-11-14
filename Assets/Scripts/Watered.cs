@@ -14,7 +14,7 @@ public class Watered : MonoBehaviour
         if (!plant.isWatered)
         {
             plant.isWatered = true;
-            clock.timer = 30;
+            clock.waterTimer = 10f;
         }
         
     }
