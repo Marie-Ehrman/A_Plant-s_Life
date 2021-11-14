@@ -6,10 +6,14 @@ using UnityEngine.UI;
 public class CountDown : MonoBehaviour
 {
 
+    public float globalTimer = 60;
+
     public float waterTimer = 15;
     public float foodTimer = 45;
     public float lightTimer = 30;
-    
+
+    public Text globalTimeTextBox;
+
     public Text waterTextBox;
     public Text foodTextBox;
     public Text lightTextBox;
@@ -20,6 +24,8 @@ public class CountDown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        globalTimeTextBox.text = globalTimer.ToString();
+
         waterTextBox.text = "Water: " + waterTimer.ToString();
         foodTextBox.text = "Food: " + foodTimer.ToString();
         lightTextBox.text = "Light: " + lightTimer.ToString();
@@ -28,6 +34,9 @@ public class CountDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        globalTimer -= Time.deltaTime;
+        globalTimeTextBox.text = Mathf.Round(globalTimer).ToString();
 
         waterTimer -= Time.deltaTime;
         waterTextBox.text = "Water: " + Mathf.Round(waterTimer).ToString();

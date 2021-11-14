@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public bool isFed = true;
     public bool isLit = true;
 
+    public float lives = 3;
+
     float randomTime;
 
 
@@ -59,26 +61,61 @@ public class GameManager : MonoBehaviour
 
     void ChangeSprite()
     {
-        if (isWatered && isFed && isLit) {
+
+        //ALL GOOD
+        if (isWatered && isLit) {
             spriteRenderer.sprite = spriteArray[0];
         }
 
-
+        //NEEDS WATER
         if (!isWatered)
         {
             spriteRenderer.sprite = spriteArray[3];
         }
 
-
-        if (!isFed)
+        if (!isWatered && lives == 2)
         {
             spriteRenderer.sprite = spriteArray[4];
         }
 
-
-        if (!isLit)
+        if (!isWatered && lives == 1)
         {
             spriteRenderer.sprite = spriteArray[5];
+        }
+
+
+
+        //NEEDS LIGHT
+        if (!isLit)
+        {
+            spriteRenderer.sprite = spriteArray[6];
+        }
+
+        if (!isLit && lives == 2)
+        {
+            spriteRenderer.sprite = spriteArray[7];
+        }
+
+        if (!isLit && lives == 1)
+        {
+            spriteRenderer.sprite = spriteArray[8];
+        }
+
+
+        //NEEDS LIGHT AND WATER
+        if (!isWatered && !isLit)
+        {
+            spriteRenderer.sprite = spriteArray[9];
+        }
+
+        if (!isWatered && !isLit && lives == 2)
+        {
+            spriteRenderer.sprite = spriteArray[10];
+        }
+
+        if (!isWatered && !isLit && lives == 1)
+        {
+            spriteRenderer.sprite = spriteArray[11];
         }
 
     }
