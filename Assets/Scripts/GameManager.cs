@@ -124,17 +124,14 @@ public class GameManager : MonoBehaviour
     }
 
     void RemoveLife() {
-        Debug.Log("Global Clock: " + clock.globalTimer);
 
         if (Mathf.Round(clock.globalTimer) < 0)
         {
-            Debug.Log("Timer at ZERO");
-            clock.globalTimer = 10;
+
+            clock.globalTimer = 5;
             lives--;
         }
-        else {
-            Debug.Log("NOT removing life");
-        }
+
     }
 
     void GameOver() {

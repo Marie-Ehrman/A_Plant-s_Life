@@ -26,9 +26,9 @@ public class Warning : MonoBehaviour
 
         if (!plant.isWatered && !plant.isLit) {
             warning.enabled = true;
-            warning.text = "Warning, find water or light in: " + Mathf.Round(clock.globalTimer).ToString() + " seconds";
+            warning.text = "Hurry, find water or light in: " + Mathf.Round(clock.globalTimer).ToString() + " seconds";
         } else {
-            clock.globalTimer = 10;
+            clock.globalTimer = 5;
             warning.enabled = false;
         }
 

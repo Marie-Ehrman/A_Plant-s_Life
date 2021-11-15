@@ -14,7 +14,7 @@ public class Lit : MonoBehaviour
         if (!plant.isLit)
         {
             plant.isLit = true;
-            clock.lightTimer = 30f;
+            clock.lightTimer = 8f;
         }
 
     }
