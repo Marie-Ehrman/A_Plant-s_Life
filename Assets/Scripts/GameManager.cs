@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+    public GameOverScreen gameOver;
     public CharacterController player;
     public CountDown clock;
 
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
 
         player = GetComponent<CharacterController>();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -47,6 +48,9 @@ public class GameManager : MonoBehaviour
             isLit = false;
         }
 
+        if (lives == 0) {
+            GameOver();
+        }
     }
 
     void ChangeSprite()
@@ -131,6 +135,10 @@ public class GameManager : MonoBehaviour
         else {
             Debug.Log("NOT removing life");
         }
+    }
+
+    void GameOver() {
+        gameOver.Setup();
     }
 
 }
