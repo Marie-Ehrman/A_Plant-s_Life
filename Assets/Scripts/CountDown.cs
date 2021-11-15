@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class CountDown : MonoBehaviour
 {
 
-    public float globalTimer = 60;
+    public float globalTimer = 10;
 
-    public float waterTimer = 15;
-    public float foodTimer = 45;
-    public float lightTimer = 30;
+    public float waterTimer = 10;
+    public float foodTimer = 30;
+    public float lightTimer = 20;
 
     public Text globalTimeTextBox;
 

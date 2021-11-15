@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
 
     public float lives = 3;
 
-    float randomTime;
 
 
     // Start is called before the first frame update
@@ -32,30 +31,21 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ChangeSprite();
-        RandomTime();
+        RemoveLife();
 
-
-        Debug.Log(Mathf.Round(clock.waterTimer));
         if (clock.waterTimer <= 0f) {
-            
-
             isWatered = false;
         }
 
         if (clock.foodTimer <= 0f)
         {
-            Debug.Log("not fed");
-
             isFed = false;
         }
 
         if (clock.lightTimer <= 0f)
         {
-            Debug.Log("not lit");
-
             isLit = false;
         }
-
 
     }
 
@@ -67,6 +57,15 @@ public class GameManager : MonoBehaviour
             spriteRenderer.sprite = spriteArray[0];
         }
 
+        if (isWatered && isLit && lives == 2)
+        {
+            spriteRenderer.sprite = spriteArray[1];
+        }
+
+        if (isWatered && isLit && lives == 1)
+        {
+            spriteRenderer.sprite = spriteArray[2];
+        }
         //NEEDS WATER
         if (!isWatered)
         {
@@ -120,8 +119,18 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void RandomTime() {
-        randomTime = Mathf.Round(Random.Range(1, 29) * 10.0f) * 0.1f;
+    void RemoveLife() {
+        Debug.Log("Global Clock: " + clock.globalTimer);
+
+        if (Mathf.Round(clock.globalTimer) < 0)
+        {
+            Debug.Log("Timer at ZERO");
+            clock.globalTimer = 10;
+            lives--;
+        }
+        else {
+            Debug.Log("NOT removing life");
+        }
     }
 
 }
